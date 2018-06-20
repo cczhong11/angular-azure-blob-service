@@ -95,7 +95,7 @@ export class BlobService {
         const uri = state.fileUrl + '&comp=block&blockid=' + state.blockIds[state.blockIds.length - 1]
         const requestData = evt.target.result
         const requestData2 = new Uint8Array(evt.target.result)
-        const headers = new HttpHeaders({ 'x-ms-blob-type': 'BlockBlob', 'Content-Type': 'application/octet-stream' })
+        const headers = new HttpHeaders({ 'x-ms-blob-type': 'BlockBlob', 'Content-Type': 'application/octet-stream','x-ms-blob-content-type': 'image/jpeg' })
         this.http.put(uri, requestData, { headers: headers, responseType: 'text' })
           .subscribe(elem => {
             state.bytesUploaded += requestData2.length
